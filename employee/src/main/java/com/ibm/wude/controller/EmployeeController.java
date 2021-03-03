@@ -97,17 +97,20 @@ public class EmployeeController {
 	}
 
 	/**
-	 * 更新员工信息
+	 * 
 	 * 
 	 * @param employeeModel
 	 * @return
 	 */
-	@ApiOperation(value = "更新员工信息", notes = "传入一个POJO（JSON格式），其中“id”是必须的")
+	@ApiOperation(value = "更新患者信息", notes = "传入一个POJO（JSON格式），其中“id”是必须的")
 	@ApiImplicitParams({
 			@ApiImplicitParam(name = "id", value = "编号", dataType = "Integeter", paramType = "path", required = true),
-			@ApiImplicitParam(name = "name", value = "员工姓名", dataType = "String", paramType = "path", required = true),
-			@ApiImplicitParam(name = "salary", value = "工资", dataType = "Double", paramType = "path", required = true),
-			@ApiImplicitParam(name = "age", value = "年龄", dataType = "Integeter", paramType = "path", required = true) })
+			@ApiImplicitParam(name = "sex", value = "性别", dataType = "String", paramType = "path", required = true),
+			@ApiImplicitParam(name = "age", value = "年龄", dataType = "Integeter", paramType = "path", required = true),
+			@ApiImplicitParam(name = "comefrom", value = "来源地", dataType = "String", paramType = "path", required = true), 
+			@ApiImplicitParam(name = "time", value = "确诊时间", dataType = "String", paramType = "path", required = true), 
+			//尝试一下
+			@ApiImplicitParam(name = "level", value = "病症", dataType = "String", paramType = "path", required = true), })
 	@PostMapping("/updateEmp")
 	public boolean updateEmployee(@RequestBody EmployeeModel emp) {
 		if (getEmployeeModelById(emp.getId()) != null) {
@@ -151,7 +154,7 @@ public class EmployeeController {
 	 * @throws ParseException
 	 */
 	@ApiOperation("导出患者信息表")
-	@PostMapping(value = "/export")
+	@GetMapping("/export")
 	@ResponseBody
 	public void export(HttpServletResponse response) throws ParseException {
 		employeeService.export(response);
