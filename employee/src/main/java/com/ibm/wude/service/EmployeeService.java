@@ -76,7 +76,7 @@ public class EmployeeService {
 		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
 		String fileName = "患者信息表" + simpleDateFormat.format(new Date()) + ".xlsx";
 		String sheetname = "患者信息表";
-		String[] title = { "编号", "姓名", "年龄","来源地","确诊时间","病症危险等级" };
+		String[] title = { "编号", "姓名","性别","年龄","来源地","确诊时间","病症危险等级" };
 		// 声明表单内容
 		String[][] content = new String[list.size()][title.length];
 		// 遍历要导出的数据列表，构造表单内容
@@ -88,10 +88,11 @@ public class EmployeeService {
 			// 填充内容
 			row[0] = String.valueOf(emp.getId());
 			row[1] = emp.getName();
-			row[2] = String.valueOf(emp.getAge());
-			row[3] = emp.getComefrom();
-			row[4] = emp.getTime();
-			row[5] = emp.getLevel();
+			row[2] = emp.getSex();
+			row[3] = String.valueOf(emp.getAge());
+			row[4] = emp.getComefrom();
+			row[5] = emp.getTime();
+			row[6] = emp.getLevel();
 		}
 
 		// 获取文档

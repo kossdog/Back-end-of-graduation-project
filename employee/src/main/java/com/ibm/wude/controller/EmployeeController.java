@@ -34,7 +34,8 @@ public class EmployeeController {
    //test
 	@ApiOperation(value = "添加员工信息", notes = "传入一个POJO（JSON格式）")
 	@ApiImplicitParams({
-			@ApiImplicitParam(name = "name", value = "员工姓名", dataType = "String", paramType = "path", required = true),
+			@ApiImplicitParam(name = "name", value = "患者姓名", dataType = "String", paramType = "path", required = true),
+			@ApiImplicitParam(name = "sex", value = "性别", dataType = "String", paramType = "path", required = true),
 			@ApiImplicitParam(name = "age", value = "年龄", dataType = "Integeter", paramType = "path", required = true),
 			@ApiImplicitParam(name = "comefrom", value = "来源地", dataType = "String", paramType = "path", required = true), 
 			@ApiImplicitParam(name = "time", value = "确诊时间", dataType = "String", paramType = "path", required = true), 
@@ -70,7 +71,7 @@ public class EmployeeController {
 	 * @param name
 	 * @return
 	 */
-	@ApiOperation("通过姓名查询员工信息")
+	@ApiOperation("通过姓名查询患者信息")
 	@GetMapping("/getEmpByName/{name}")
 	public EmployeeModel getEmployeeModelByName(@PathVariable("name") String name) {
 		return employeeService.getEmployeeByName(name);
@@ -82,7 +83,7 @@ public class EmployeeController {
 	 * @param id
 	 * @return
 	 */
-	@ApiOperation("通过ID删除员工信息")
+	@ApiOperation("通过ID删除患者信息")
 	@DeleteMapping("/delEmpById/{id}")
 	public boolean deleteEmployeeById(@PathVariable("id") Integer id) {
 		EmployeeModel emp = new EmployeeModel();
@@ -137,7 +138,7 @@ public class EmployeeController {
 	 * @param string
 	 * @return
 	 */
-	@ApiOperation("通过ID或姓名模糊查询员工信息")
+	@ApiOperation("通过ID或姓名模糊查询患者信息")
 	@GetMapping("/findEmp/{string}")
 	public List<EmployeeModel> finEmployeeModel(@PathVariable String string) {
 		return employeeService.findEmployeeModel(string);
@@ -149,7 +150,7 @@ public class EmployeeController {
 	 * @param response
 	 * @throws ParseException
 	 */
-	@ApiOperation("导出员工信息表")
+	@ApiOperation("导出患者信息表")
 	@PostMapping(value = "/export")
 	@ResponseBody
 	public void export(HttpServletResponse response) throws ParseException {

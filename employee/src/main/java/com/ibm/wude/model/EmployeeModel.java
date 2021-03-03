@@ -2,10 +2,19 @@ package com.ibm.wude.model;
 
 import io.swagger.annotations.ApiModel;
 
-@ApiModel("员工信息Model")
+@ApiModel("患者信息Model")
 public class EmployeeModel {
 	private Integer id;
 	private String name;
+	private String sex;
+	public String getSex() {
+		return sex;
+	}
+
+	public void setSex(String sex) {
+		this.sex = sex;
+	}
+
 	private Integer age;
 	private String comefrom;
 	private String time;
