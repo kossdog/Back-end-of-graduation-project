@@ -74,8 +74,8 @@ public class EmployeeService {
 		List<EmployeeModel> list = employeeMapper.getAllEmployee();
 		// 设置文件名、表单名、标题栏
 		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
-		String fileName = "员工信息表" + simpleDateFormat.format(new Date()) + ".xlsx";
-		String sheetname = "员工信息表";
+		String fileName = "患者信息表" + simpleDateFormat.format(new Date()) + ".xlsx";
+		String sheetname = "患者信息表";
 		String[] title = { "编号", "姓名", "年龄","来源地","确诊时间","病症危险等级" };
 		// 声明表单内容
 		String[][] content = new String[list.size()][title.length];
@@ -89,9 +89,9 @@ public class EmployeeService {
 			row[0] = String.valueOf(emp.getId());
 			row[1] = emp.getName();
 			row[2] = String.valueOf(emp.getAge());
-			row[3] = String.valueOf(emp.getComefrom());
-			row[4] = String.valueOf(emp.getTime());
-			row[5] = String.valueOf(emp.getLevel());
+			row[3] = emp.getComefrom();
+			row[4] = emp.getTime();
+			row[5] = emp.getLevel();
 		}
 
 		// 获取文档
