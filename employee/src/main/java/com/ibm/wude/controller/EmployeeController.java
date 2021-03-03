@@ -31,13 +31,14 @@ public class EmployeeController {
 
 	@Autowired
 	EmployeeService employeeService;
-
+   //test
 	@ApiOperation(value = "添加员工信息", notes = "传入一个POJO（JSON格式）")
 	@ApiImplicitParams({
 			@ApiImplicitParam(name = "name", value = "员工姓名", dataType = "String", paramType = "path", required = true),
 			@ApiImplicitParam(name = "age", value = "年龄", dataType = "Integeter", paramType = "path", required = true),
 			@ApiImplicitParam(name = "comefrom", value = "来源地", dataType = "String", paramType = "path", required = true), 
 			@ApiImplicitParam(name = "time", value = "确诊时间", dataType = "String", paramType = "path", required = true), 
+			//尝试一下
 			@ApiImplicitParam(name = "level", value = "病症", dataType = "String", paramType = "path", required = true), })
 	@PostMapping("/addEmploy")
 	public int addEmploy(@RequestBody EmployeeModel employee) {
@@ -50,7 +51,7 @@ public class EmployeeController {
 		List<EmployeeModel> list = employeeService.getAllEmployee();
 		return list;
 	}
-
+	//test
 	/**
 	 * 查询员工信息
 	 * 
