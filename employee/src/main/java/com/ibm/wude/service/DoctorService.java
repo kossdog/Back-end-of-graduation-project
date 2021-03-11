@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import com.ibm.wude.mapper.DoctorMapper;
 import com.ibm.wude.model.DoctorModel;
@@ -28,5 +29,36 @@ public class DoctorService {
 
 	public List<DoctorModel> getAllDoctor() {
 		return doctorMapper.getAllDoctor();
+	}
+	
+	public int addDoctor(DoctorModel doctor) {
+		return doctorMapper.addDoctor(doctor);
+	}
+	
+	public DoctorModel getDoctorById(Integer id) {
+		return doctorMapper.getDoctorModelById(id);
+	}
+
+	public DoctorModel getDoctorModelByDocname(String docname) {
+		return doctorMapper.getDoctorModelByDocname(docname);
+	}
+	
+	public boolean updateDoctor(DoctorModel doctorModel) {
+		return doctorMapper.updateDoctor(doctorModel);
+	}
+	
+	public Pager<DoctorModel> getDocByPage(Pager<DoctorModel> findPage) {
+		Map<String, Object> params = new HashMap<String, Object>();
+		int page = findPage.getPage();
+		int size = findPage.getSize();
+		params.put("page", (page - 1) * size);
+		params.put("size", size);
+		Pager<DoctorModel> pager = new Pager<DoctorModel>();
+		List<DoctorModel> list = doctorMapper.getDocByPage(params);
+		pager.setPage(page);
+		pager.setSize(page);
+		pager.setRows(list);
+		pager.setTotal(doctorMapper.count());
+		return pager;
 	}
 }

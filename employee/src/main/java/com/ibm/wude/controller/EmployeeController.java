@@ -40,7 +40,8 @@ public class EmployeeController {
 			@ApiImplicitParam(name = "comefrom", value = "来源地", dataType = "String", paramType = "path", required = true), 
 			@ApiImplicitParam(name = "time", value = "确诊时间", dataType = "String", paramType = "path", required = true), 
 			//尝试一下
-			@ApiImplicitParam(name = "level", value = "病症", dataType = "String", paramType = "path", required = true), })
+			@ApiImplicitParam(name = "level", value = "病症", dataType = "String", paramType = "path", required = true),
+			})
 	@PostMapping("/addEmploy")
 	public int addEmploy(@RequestBody EmployeeModel employee) {
 		return employeeService.addEmploy(employee);

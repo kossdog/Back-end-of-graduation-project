@@ -8,5 +8,29 @@
 		select * from t_doc
 	</select>
 	
+	<insert id = "addDoctor" >
+  		insert into t_doc(id,docname,docsex,docage,doclevel) values(#{id},#{docname},#{docsex},#{docage},#{doclevel})
+ 	</insert>
+ 	
+ 	<select id = "getDocByPage" resultType = "com.ibm.wude.model.DoctorModel">
+	select * from t_doc limit #{page},#{size}
+	</select>
 	
+	<select id = "count" resultType = "long">
+	select count(id) from t_doc
+	</select>
+	
+	<select id = "getDoctorModelById" resultType = "com.ibm.wude.model.DoctorModel">
+		SELECT * FROM t_doc WHERE id=#{id}
+	</select>
+	
+	<update id = "updateDoctor">
+	UPDATE t_doc SET
+	docname=#{docname},
+	docsex=#{docsex},
+	docage=#{docage},
+	doclevel=#{doclevel}
+	WHERE
+	id=#{id}
+	</update>
 </mapper>
