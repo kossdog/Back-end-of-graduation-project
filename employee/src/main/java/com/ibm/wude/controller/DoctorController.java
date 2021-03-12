@@ -103,6 +103,25 @@ public class DoctorController {
 	public DoctorModel getDoctorModelById(@PathVariable("id") Integer id) {
 		return doctorService.getDoctorById(id);
 	}
+	
+	/**
+	 * 删除医生信息
+	 * 
+	 * @param id
+	 * @return
+	 */
+	@ApiOperation("通过ID删除医生信息")
+	@DeleteMapping("/delDocById/{id}")
+	public boolean deleteDoctorById(@PathVariable("id") Integer id) {
+		DoctorModel doc = new DoctorModel();
+		doc.setId(id);
+		if (getDoctorModelById(id) != null) {
+			return doctorService.deleteDoctorById(id);
+		} else {
+			return false;
+		}
+
+	}
 
 }
 

@@ -7,6 +7,19 @@ public class EmployeeModel {
 	private Integer id;
 	private String name;
 	private String sex;
+	private Integer age;
+	private String comefrom;
+	private String time;
+	private String level;
+	private String doctor;
+    public String getDoctor() {
+		return doctor;
+	}
+
+	public void setDoctor(String doctor) {
+		this.doctor = doctor;
+	}
+
 	public String getSex() {
 		return sex;
 	}
@@ -14,12 +27,6 @@ public class EmployeeModel {
 	public void setSex(String sex) {
 		this.sex = sex;
 	}
-
-	private Integer age;
-	private String comefrom;
-	private String time;
-	private String level;
-
 	public String getComefrom() {
 		return comefrom;
 	}

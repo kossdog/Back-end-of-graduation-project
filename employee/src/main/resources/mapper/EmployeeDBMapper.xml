@@ -2,7 +2,7 @@
 <mapper namespace = "com.ibm.wude.mapper.EmployeeMapper">
 
 	<insert id = "addEmploy" >
-  		insert into t_emp(id,name,sex,age,comefrom,time,level) values(#{id},#{name},#{sex},#{age},#{comefrom},#{time},#{level})
+  		insert into t_emp(id,name,sex,age,comefrom,time,level,doctor) values(#{id},#{name},#{sex},#{age},#{comefrom},#{time},#{level},#{doctor})
  	</insert>
 
 	<select id = "getAllEmployee" resultType = "com.ibm.wude.model.EmployeeModel">
@@ -29,7 +29,8 @@
 	age=#{age},
 	comefrom=#{comefrom},
 	time=#{time},
-	level=#{level}
+	level=#{level},
+	doctor=#{doctor}
 	WHERE
 	id=#{id}
 	</update>

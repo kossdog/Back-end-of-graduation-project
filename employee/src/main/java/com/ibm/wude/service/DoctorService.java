@@ -47,6 +47,10 @@ public class DoctorService {
 		return doctorMapper.updateDoctor(doctorModel);
 	}
 	
+	public boolean deleteDoctorById(Integer id) {
+		return doctorMapper.deleteDoctorById(id);
+	}
+	
 	public Pager<DoctorModel> getDocByPage(Pager<DoctorModel> findPage) {
 		Map<String, Object> params = new HashMap<String, Object>();
 		int page = findPage.getPage();

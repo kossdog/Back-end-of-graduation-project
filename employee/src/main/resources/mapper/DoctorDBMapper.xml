@@ -12,6 +12,10 @@
   		insert into t_doc(id,docname,docsex,docage,doclevel) values(#{id},#{docname},#{docsex},#{docage},#{doclevel})
  	</insert>
  	
+ 	<delete id = "deleteDoctorById">
+		DELETE FROM t_doc WHERE id=#{id}
+	</delete>
+ 	
  	<select id = "getDocByPage" resultType = "com.ibm.wude.model.DoctorModel">
 	select * from t_doc limit #{page},#{size}
 	</select>

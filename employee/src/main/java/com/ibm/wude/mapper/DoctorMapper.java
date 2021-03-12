@@ -18,6 +18,8 @@ public interface DoctorMapper {
 	
 	public int addDoctor(DoctorModel doctor);
 	
+	public boolean deleteDoctorById(Integer id);
+	
 	public List<DoctorModel> getDocByPage(Map<String, Object> params);
 	
 	public boolean updateDoctor(DoctorModel doctorModel);
