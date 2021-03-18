@@ -12,7 +12,16 @@ public class EmployeeModel {
 	private String time;
 	private String level;
 	private String doctor;
-    public String getDoctor() {
+	private String room;
+    public String getRoom() {
+		return room;
+	}
+
+	public void setRoom(String room) {
+		this.room = room;
+	}
+
+	public String getDoctor() {
 		return doctor;
 	}
 

@@ -42,6 +42,7 @@ public class EmployeeController {
 			//尝试一下
 			@ApiImplicitParam(name = "level", value = "病症", dataType = "String", paramType = "path", required = true),
 			@ApiImplicitParam(name = "doctor", value = "医生", dataType = "String", paramType = "path", required = true),
+			@ApiImplicitParam(name = "room", value = "病房", dataType = "String", paramType = "path", required = true),
 			})
 	@PostMapping("/addEmploy")
 	public int addEmploy(@RequestBody EmployeeModel employee) {
@@ -113,8 +114,9 @@ public class EmployeeController {
 			@ApiImplicitParam(name = "time", value = "确诊时间", dataType = "String", paramType = "path", required = true), 
 			//尝试一下
 			@ApiImplicitParam(name = "level", value = "病症", dataType = "String", paramType = "path", required = true),
-			@ApiImplicitParam(name = "doctor", value = "医生", dataType = "String", paramType = "path", required = true), }
-			)
+			@ApiImplicitParam(name = "doctor", value = "医生", dataType = "String", paramType = "path", required = true),
+			@ApiImplicitParam(name = "room", value = "病房", dataType = "String", paramType = "path", required = true),
+	})
 	@PostMapping("/updateEmp")
 	public boolean updateEmployee(@RequestBody EmployeeModel emp) {
 		if (getEmployeeModelById(emp.getId()) != null) {

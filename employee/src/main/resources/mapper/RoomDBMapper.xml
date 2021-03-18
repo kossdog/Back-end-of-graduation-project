@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace = "com.ibm.wude.mapper.RoomMapper">
+
+	<select id = "getAllRoom" resultType = "com.ibm.wude.model.RoomModel">
+		select * from t_room
+	</select>
+	
+	<insert id = "addRoom" >
+  		insert into t_room(id,num,type,state) values(#{id},#{num},#{type},#{state})
+ 	</insert>
+ 	
+ 	<delete id = "deleteRoomById">
+		DELETE FROM t_room WHERE id=#{id}
+	</delete>
+ 	
+ 	<select id = "getRoomByPage" resultType = "com.ibm.wude.model.RoomModel">
+	select * from t_room limit #{page},#{size}
+	</select>
+	
+	<select id = "count" resultType = "long">
+	select count(id) from t_room
+	</select>
+	
+	<select id = "getRoomModelById" resultType = "com.ibm.wude.model.RoomModel">
+		SELECT * FROM t_room WHERE id=#{id}
+	</select>
+	
+	<update id = "updateRoom">
+	UPDATE t_room SET 
+	num=#{num},
+	type=#{type},
+	state=#{state}
+	WHERE
+	id=#{id}
+	</update>
+</mapper>
