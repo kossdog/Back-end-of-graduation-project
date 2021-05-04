@@ -37,4 +37,8 @@
 	WHERE
 	id=#{id}
 	</update>
+	
+	<select id="findDoctorModel" resultType = "com.ibm.wude.model.DoctorModel" parameterType="String">
+	select * from t_doc where docname like '%${docname}%' or docsex like '%${docsex}%' or docage like '%${age}%' or doclevel like '%${level}%'
+	</select>
 </mapper>

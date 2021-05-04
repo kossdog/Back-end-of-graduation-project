@@ -5,6 +5,7 @@ import java.util.Map;
 import org.apache.ibatis.annotations.Mapper;
 
 import com.ibm.wude.model.DoctorModel;
+import com.ibm.wude.model.EmployeeModel;
 
 
 @Mapper
@@ -25,4 +26,6 @@ public interface DoctorMapper {
 	public boolean updateDoctor(DoctorModel doctorModel);
 
 	public long count();
+	
+	public List<DoctorModel> findDoctorModel(String string);
 }

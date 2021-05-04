@@ -8,6 +8,10 @@
 		select * from t_room
 	</select>
 	
+	<select id = "getRoomState" resultType = "com.ibm.wude.model.RoomModel">
+		select * from t_room WHERE state='闲置'
+	</select>
+	
 	<insert id = "addRoom" >
   		insert into t_room(id,num,type,state) values(#{id},#{num},#{type},#{state})
  	</insert>
@@ -36,4 +40,8 @@
 	WHERE
 	id=#{id}
 	</update>
+	
+	<select id="findRoomModel" resultType = "com.ibm.wude.model.RoomModel" parameterType="String">
+	select * from t_room where num like '%${num}%' or type like '%${type}%' or state like '%${state}%'
+	</select>
 </mapper>

@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 import org.apache.ibatis.annotations.Mapper;
 
+import com.ibm.wude.model.DoctorModel;
 import com.ibm.wude.model.RoomModel;
 
 
@@ -16,6 +17,8 @@ public interface RoomMapper {
 
 	public List<RoomModel> getAllRoom();
 	
+	public List<RoomModel> getRoomState();
+	
 	public int addRoom(RoomModel room);
 	
 	public boolean deleteRoomById(Integer id);
@@ -25,4 +28,6 @@ public interface RoomMapper {
 	public boolean updateRoom(RoomModel roomModel);
 
 	public long count();
+	
+	public List<RoomModel> findRoomModel(String string);
 }

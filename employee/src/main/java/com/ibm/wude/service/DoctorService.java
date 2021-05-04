@@ -65,4 +65,8 @@ public class DoctorService {
 		pager.setTotal(doctorMapper.count());
 		return pager;
 	}
+	
+	public List<DoctorModel> findDoctorModel(String string) {
+		return doctorMapper.findDoctorModel(string);
+	}
 }

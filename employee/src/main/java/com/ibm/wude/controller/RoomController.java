@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ibm.wude.model.RoomModel;
+import com.ibm.wude.model.DoctorModel;
 import com.ibm.wude.model.Pager;
 import com.ibm.wude.service.RoomService;
 
@@ -38,6 +39,13 @@ public class RoomController {
 	@GetMapping("/getAllRoom")
 	public List<RoomModel> getAllRoom() {
 		List<RoomModel> list = roomService.getAllRoom();
+		return list;
+	}
+	//闲置病房
+	@ApiOperation(value = "获取闲置病房", notes = "不必传入参数")
+	@GetMapping("/getRoomState")
+	public List<RoomModel> getRoomState() {
+		List<RoomModel> list = roomService.getRoomState();
 		return list;
 	}
 
@@ -116,6 +124,18 @@ public class RoomController {
 			return false;
 		}
 
+	}
+	
+	/**
+	 * 模糊查询病房信息
+	 * 
+	 * @param string
+	 * @return
+	 */
+	@ApiOperation("模糊查询病房信息")
+	@GetMapping("/findRoom/{string}")
+	public List<RoomModel> findRoomModel(@PathVariable String string) {
+		return roomService.findRoomModel(string);
 	}
 
 }

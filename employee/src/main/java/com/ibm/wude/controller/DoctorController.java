@@ -93,7 +93,7 @@ public class DoctorController {
 	}
 
 	/**
-	 * 查询员工信息
+	 * 查询id信息
 	 * 
 	 * @param id
 	 * @return 查询结果
@@ -121,6 +121,18 @@ public class DoctorController {
 			return false;
 		}
 
+	}
+	
+	/**
+	 * 模糊查询医生信息
+	 * 
+	 * @param string
+	 * @return
+	 */
+	@ApiOperation("模糊查询医生信息")
+	@GetMapping("/findDoc/{string}")
+	public List<DoctorModel> findDoctorModel(@PathVariable String string) {
+		return doctorService.findDoctorModel(string);
 	}
 
 }

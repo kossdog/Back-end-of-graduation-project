@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import com.ibm.wude.model.RoomModel;
 import com.ibm.wude.mapper.RoomMapper;
+import com.ibm.wude.model.DoctorModel;
 import com.ibm.wude.model.Pager;
 import com.ibm.wude.utils.ExcelUtil;
 
@@ -28,6 +29,10 @@ public class RoomService {
 
 	public List<RoomModel> getAllRoom() {
 		return roomMapper.getAllRoom();
+	}
+	
+	public List<RoomModel> getRoomState() {
+		return roomMapper.getRoomState();
 	}
 	
 	public int addRoom(RoomModel room) {
@@ -63,5 +68,9 @@ public class RoomService {
 		pager.setRows(list);
 		pager.setTotal(roomMapper.count());
 		return pager;
+	}
+	
+	public List<RoomModel> findRoomModel(String string) {
+		return roomMapper.findRoomModel(string);
 	}
 }

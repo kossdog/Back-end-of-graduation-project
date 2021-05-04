@@ -69,7 +69,7 @@ public class EmployeeController {
 	}
 
 	/**
-	 * 查询员工信息
+	 * 查询患者信息
 	 * 
 	 * @param name
 	 * @return
