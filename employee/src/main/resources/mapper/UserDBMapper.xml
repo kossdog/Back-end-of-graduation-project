@@ -21,5 +21,11 @@
 	values (#{id}, #{username}, #{realname}, #{password}, #{sex})
 	</insert>
 	
+	<update id = "updateUser">
+	UPDATE t_user SET
+	password = #{password}
+	WHERE
+	username=#{username}
+	</update>
 	
 </mapper>

@@ -3,6 +3,7 @@ package com.ibm.wude.controller;
 import java.util.List;
 import java.util.UUID;
 
+import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.ibm.wude.model.DoctorModel;
 import com.ibm.wude.model.Msg;
 import com.ibm.wude.model.UserModel;
 import com.ibm.wude.service.UserService;
@@ -94,6 +96,25 @@ public class UserController {
 			return new Msg(200, "注册成功", null);
 		} else {
 			return new Msg(403, "用户已存在，注册失败", null);
+		}
+	}
+	
+	/**
+	 * 
+	 * 
+	 * @param doctorModel
+	 * @return
+	 */
+	@ApiOperation(value = "更新用户信息", notes = "传入一个POJO（JSON格式），其中“id”是必须的")
+	@ApiImplicitParams({
+			@ApiImplicitParam(name = "username", value = "用户名", dataType = "String", paramType = "path", required = true),
+			@ApiImplicitParam(name = "password", value = "密码", dataType = "String", paramType = "path", required = true)})
+	@PostMapping("/updateUser")
+	public boolean updateUser(@RequestBody UserModel user) {
+		if (getUserModelByUsername(user.getUsername()) != null) {
+			return UserService.updateUser(user);
+		} else {
+			return false;
 		}
 	}
 }

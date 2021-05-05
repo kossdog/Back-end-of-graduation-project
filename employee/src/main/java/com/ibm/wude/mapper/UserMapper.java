@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 
+import com.ibm.wude.model.DoctorModel;
 import com.ibm.wude.model.UserModel;
 
 @Mapper
@@ -17,4 +18,6 @@ public interface UserMapper {
 	public UserModel getUserModelByUserlogin(UserModel user);
 
 	public List<UserModel> getAllUser();
+	
+	public boolean updateUser(UserModel userModel);
 }
